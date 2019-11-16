@@ -1,0 +1,60 @@
+Create Table departments (
+	dept_no  Varchar(10) Primary Key NOT NULL,
+	dept_name Varchar(25)
+);
+select *
+From departments
+---------------------------------
+Create Table dept_emp (
+	emp_no int,
+	dept_no Varchar(10), 
+	from_date Varchar(15),
+	to_date Varchar(15),
+	Foreign Key (dept_no) references departments(dept_no),
+	Foreign Key (emp_no) references employees(emp_no)
+);
+Select * 
+From dept_emp
+-----------------------------------
+Create Table employees (
+	emp_no int Primary Key,
+	birth_date Varchar(20),
+	first_name Varchar(20),
+	last_name Varchar(20),
+	gender Varchar(5),
+	hire_date Varchar(15)
+);
+Select *
+From employees
+
+-----------------------------------
+Create table salaries(
+	emp_no int,
+	salary int,
+	from_date Varchar(15),
+	to_date Varchar(15),
+	Foreign Key (emp_no) references employees(emp_no)	
+);
+
+---------------------------------
+Create table titles( 
+	emp_no int,
+	title Varchar(20),
+	from_date Varchar(20),
+	to_date Varchar(20),	
+	Foreign Key (emp_no) references employees(emp_no)	
+);
+
+----------------------------------
+Create table dept_manager(
+	dept_no Varchar(10),
+	emp_no int,
+	from_date Varchar(20),
+	to_date Varchar(20),
+	Foreign Key (emp_no) references employees(emp_no),	
+	Foreign Key (dept_no) references departments(dept_no)
+)
+
+
+Select *
+From dept_manager
